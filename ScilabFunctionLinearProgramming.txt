@@ -1,0 +1,27 @@
+--> A=[-2 3;-1 -1];b=[-6;-4];FO=[-3 -2];// FO es minimizar y <= Siempre
+
+--> function [LME,LMI,OBJ]=linprog_eval (XLIST) 
+  > [x]=XLIST(:)
+  > [m,n]=size(A)
+  > LME=[]
+  > LMI=list()
+  > tmp=A*x-b
+  > for i=1:m
+  > LMI(i)=tmp(i)
+  > end
+  > OBJ=FO*x
+  > endfunction 
+
+-->
+lmisolver([0;0],linprog_eval) 
+--> tree_show(ans)
+
+// Despues [3.6 ; 0.4], esos son los Valores de x e y, que vemos en pantalla. Solo Haria Falta Reemplazar en la FO y saldria que FO=11.6. Resuelto:
+
+--> x= 3.6 ;
+
+--> y= 0.4;
+
+--> z=3*x+2*y
+
+// YA TENEMOS FO = 11.6
